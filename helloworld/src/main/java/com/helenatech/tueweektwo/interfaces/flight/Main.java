@@ -11,7 +11,7 @@ public class Main {
         FlightFileDataAccessService flightFileDataAccessService =
                 new FlightFileDataAccessService();
 
-        FlightService flightService = new FlightService(flightFileDataAccessService);
+        FlightService flightService = new FlightService(flightListDataAccessService);
         flightService.addFlight(new Flight("7328173982"));
         flightService.addFlight(new Flight("Luke"));
 
