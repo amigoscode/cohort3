@@ -4,6 +4,8 @@ package com.helenatech.friweektwo.exercise;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 
 class PersonServiceTest {
 
@@ -39,5 +41,9 @@ class PersonServiceTest {
 
     @Test
     void canGetPersonById() {
+        Map<String, Integer> expected = Map.of(
+                "a", 2,
+                "b", 1
+        );
     }
 }
