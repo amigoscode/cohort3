@@ -22,7 +22,9 @@ public class FakePersonDataAccessService implements PersonDAO {
 
     @Override
     public Optional<Person> selectPersonById(int id) {
-        return Optional.empty();
+        return db.stream()
+                .filter(p -> p.getId() == id)
+                .findFirst();
     }
 
     public int insertPerson(Person person) {
