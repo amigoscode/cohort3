@@ -14,7 +14,7 @@ public class PersonService {
     private PersonDAO personDAO;
 
     @Autowired
-    public PersonService(@Qualifier("fake") PersonDAO personDAO) {
+    public PersonService(@Qualifier("postgres") PersonDAO personDAO) {
         this.personDAO = personDAO;
     }
 
@@ -34,5 +34,10 @@ public class PersonService {
             throw new ResourceNotFound("person with id id: " + id + " not found");
         }
         personDAO.deletePerson(id);
+    }
+
+    public Person getPerson(int id) {
+        return personDAO.selectPersonById(id)
+                .orElseThrow(() -> new ResourceNotFound("person with id id: " + id + " not found"));
     }
 }

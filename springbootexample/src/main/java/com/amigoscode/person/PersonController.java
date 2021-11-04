@@ -21,6 +21,11 @@ public class PersonController {
         return personService.getPeople();
     }
 
+    @GetMapping("{id}")
+    public Person getPerson(@PathVariable("id") int id) {
+        return personService.getPerson(id);
+    }
+
     @PostMapping
     public void registerPerson(@RequestBody Person person) {
         personService.registerPerson(person);
